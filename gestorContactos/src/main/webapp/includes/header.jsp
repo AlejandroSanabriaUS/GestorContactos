@@ -8,4 +8,5 @@
 <link rel="stylesheet" type="text/css" href="css/style.css">
 
 <title>Contact Book</title>
+<h2>Bienvenido a tu libreta de contactos!</h2>
 </head>

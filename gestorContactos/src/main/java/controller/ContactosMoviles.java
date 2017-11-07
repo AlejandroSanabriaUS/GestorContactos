@@ -2,6 +2,7 @@ package controller;
 
 import java.io.IOException;
 import java.time.Clock;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
@@ -19,12 +20,12 @@ import model.repository.ContactRepository;
 /**
  * Servlet implementation class DeleteContactController
  */
-public class ContactListController extends HttpServlet {
+public class ContactosMoviles extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-	private static final Logger log = Logger.getLogger(ContactListController.class.getName());
+	private static final Logger log = Logger.getLogger(ContactosMoviles.class.getName());
 	
-    public ContactListController() {
+    public ContactosMoviles() {
         super();
     }
 
@@ -33,14 +34,13 @@ public class ContactListController extends HttpServlet {
 		// Load contacts
 		ContactRepository repository = ContactRepository.getInstance();
 		Map<String,Contact> contacts = repository.getContacts();
-		for(String clave:contacts.keySet()){
-                    System.out.println(contacts.get(clave).getName());
-                }
-                
+                Map<String,Contact> contactosMoviles= new HashMap();
 		 log.log(Level.FINE, "Processing GET request:  " + contacts.size() + " contacts loaded.");
-		
+
 		// Send contacts to index.jsp
-		request.setAttribute("contacts", contacts);
+                
+                
+		request.setAttribute("contacts", ContactRepository.getInstance().contactosMoviles());
 		request.getRequestDispatcher("/contactListView.jsp").forward(request, response);
 	
 	}

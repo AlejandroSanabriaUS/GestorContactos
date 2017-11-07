@@ -28,7 +28,14 @@ public class ContactDeleteController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		// TODO: Delete contact
-		
+		String id=request.getParameter("id");
+                if(id!=null && !id.equals("")){
+                    ContactRepository bd= ContactRepository.getInstance();
+                    bd.deleteContact(id);
+                    request.setAttribute("message", "Contacto Borrado!!");
+                    
+                }
+                request.getRequestDispatcher("/").forward(request, response);
 		
 		// TODO: Forward to contact list view
 		request.setAttribute("message", "Contact deleted successfully");

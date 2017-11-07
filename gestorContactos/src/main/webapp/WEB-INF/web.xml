@@ -13,6 +13,14 @@
 		<servlet-name>ContactListController</servlet-name>
 		<url-pattern>/contactlist</url-pattern>
 	</servlet-mapping>
+        <servlet>
+		<servlet-name>ContactosMoviles</servlet-name>
+		<servlet-class>controller.ContactosMoviles</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ContactosMoviles</servlet-name>
+		<url-pattern>/contactosMoviles</url-pattern>
+	</servlet-mapping>
 	
 	<!-- Contact update controller -->
 	<servlet>
